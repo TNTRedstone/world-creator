@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6ytse5plsvcy"]
+
+[ext_resource type="Script" path="res://cameraMovement.gd" id="2_w728d"]
+[ext_resource type="Texture2D" uid="uid://deruj7yqoin11" path="res://map.png" id="2_yaj2w"]
+[ext_resource type="Script" path="res://Borderdefinition.gd" id="3_sxgdo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e4pif"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("2_w728d")
+
+[node name="Map" type="Sprite2D" parent="."]
+position = Vector2(1.13687e-13, 1.19209e-07)
+scale = Vector2(0.191, 0.191)
+texture = ExtResource("2_yaj2w")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+material = SubResource("ShaderMaterial_e4pif")
+position = Vector2(-44, 22)
+color = Color(1, 0, 0, 1)
+antialiased = true
+script = ExtResource("3_sxgdo")
