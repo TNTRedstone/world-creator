@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://deruj7yqoin11" path="res://map.png" id="2_yaj2w"]
 [ext_resource type="Script" path="res://Borderdefinition.gd" id="3_sxgdo"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_e4pif"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ln42b"]
+blend_mode = 3
 
 [node name="Node2D" type="Node2D"]
 
@@ -17,8 +18,8 @@ scale = Vector2(0.191, 0.191)
 texture = ExtResource("2_yaj2w")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-material = SubResource("ShaderMaterial_e4pif")
-position = Vector2(-44, 22)
+material = SubResource("CanvasItemMaterial_ln42b")
+position = Vector2(524, -83)
 color = Color(1, 0, 0, 1)
 antialiased = true
 script = ExtResource("3_sxgdo")
