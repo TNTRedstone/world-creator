@@ -1,10 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://b6ytse5plsvcy"]
 
+[ext_resource type="Script" path="res://borderdefinition.gd" id="2_v14d2"]
 [ext_resource type="Script" path="res://cameraMovement.gd" id="2_w728d"]
 [ext_resource type="Texture2D" uid="uid://b3p7jfhxd2cgn" path="res://map.jpg" id="3_bi1l2"]
-[ext_resource type="Script" path="res://Borderdefinition.gd" id="3_sxgdo"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ln42b"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dv58e"]
 blend_mode = 3
 
 [node name="Node2D" type="Node2D"]
@@ -12,13 +12,11 @@ blend_mode = 3
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("2_w728d")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-material = SubResource("CanvasItemMaterial_ln42b")
-position = Vector2(524, -83)
-color = Color(1, 0, 0, 1)
-antialiased = true
-script = ExtResource("3_sxgdo")
-
 [node name="Map" type="Sprite2D" parent="."]
 scale = Vector2(0.191, 0.191)
 texture = ExtResource("3_bi1l2")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+material = SubResource("CanvasItemMaterial_dv58e")
+color = Color(1, 0, 0, 1)
+script = ExtResource("2_v14d2")
