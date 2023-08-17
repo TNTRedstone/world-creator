@@ -24,18 +24,19 @@ func filterVector2Array(array: PackedVector2Array) -> PackedVector2Array:
 				break
 			# Check for proximity
 			var distance = currentVector.distance_to(existingVector)
-			if distance < 0.1:
+			if distance < 0.5:
 				isTooClose = true
 				break
 		if !isDuplicate and !isTooClose:
 			filteredArray.append(currentVector)
 	return filteredArray
 func _input(_event):
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-		if GB.turn == "blue":
-			var polygonCopy = polygon + PackedVector2Array([get_local_mouse_position()])
-			if polygon.is_empty():
-				firstElement = PackedVector2Array([get_local_mouse_position()])
-			if calculate_polygon_area(polygonCopy) < 100:
-				polygon = polygon + PackedVector2Array([get_local_mouse_position()])
-			polygon = filterVector2Array(polygon)
+	if GB.bordersDefined == false:
+		if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+			if GB.turn == "blue":
+				var polygonCopy = polygon + PackedVector2Array([get_local_mouse_position()])
+				if polygon.is_empty():
+					firstElement = PackedVector2Array([get_local_mouse_position()])
+				if calculate_polygon_area(polygonCopy) < 100:
+					polygon = polygon + PackedVector2Array([get_local_mouse_position()])
+				polygon = filterVector2Array(polygon)

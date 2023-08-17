@@ -1,34 +1,51 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6ytse5plsvcy"]
+[gd_scene load_steps=10 format=3 uid="uid://b6ytse5plsvcy"]
 
+[ext_resource type="Script" path="res://MilitaryBases.gd" id="1_24gn1"]
 [ext_resource type="Script" path="res://cameraMovement.gd" id="2_w728d"]
 [ext_resource type="Script" path="res://RedBorders.gd" id="3_25jct"]
 [ext_resource type="Texture2D" uid="uid://b3p7jfhxd2cgn" path="res://map.jpg" id="3_bi1l2"]
 [ext_resource type="Script" path="res://BlueBorders.gd" id="4_ad6cq"]
 [ext_resource type="Script" path="res://DoneButton.gd" id="5_7bny4"]
 
+[sub_resource type="GDScript" id="GDScript_6sd8f"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qh2oj"]
+blend_mode = 3
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dv58e"]
 blend_mode = 3
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_24gn1")
+
+[node name="Camera2D" type="Camera2D" parent="Control"]
 script = ExtResource("2_w728d")
 
-[node name="Map" type="Sprite2D" parent="."]
+[node name="Map" type="Sprite2D" parent="Control"]
 scale = Vector2(0.191, 0.191)
 texture = ExtResource("3_bi1l2")
+script = SubResource("GDScript_6sd8f")
 
-[node name="Red" type="Polygon2D" parent="."]
-material = SubResource("CanvasItemMaterial_dv58e")
-color = Color(1, 0.196078, 0.196078, 1)
-script = ExtResource("3_25jct")
-
-[node name="Blue" type="Polygon2D" parent="."]
-material = SubResource("CanvasItemMaterial_dv58e")
+[node name="Blue" type="Polygon2D" parent="Control/Map"]
+material = SubResource("CanvasItemMaterial_qh2oj")
+scale = Vector2(5.2356, 5.2356)
 color = Color(0.196078, 0.196078, 1, 1)
 script = ExtResource("4_ad6cq")
 
-[node name="Button" type="Button" parent="."]
+[node name="Red" type="Polygon2D" parent="Control/Map"]
+material = SubResource("CanvasItemMaterial_dv58e")
+scale = Vector2(5.2356, 5.2356)
+color = Color(1, 0.196078, 0.196078, 1)
+script = ExtResource("3_25jct")
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = 977.0
 offset_top = -507.0
 offset_right = 1026.0
@@ -36,4 +53,4 @@ offset_bottom = -476.0
 text = "Done"
 script = ExtResource("5_7bny4")
 
-[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="pressed" from="Control/Button" to="Control/Button" method="_on_pressed"]
