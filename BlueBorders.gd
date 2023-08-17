@@ -31,7 +31,7 @@ func filterVector2Array(array: PackedVector2Array) -> PackedVector2Array:
 			filteredArray.append(currentVector)
 	return filteredArray
 func _input(_event):
-	if GB.bordersDefined == false:
+	if !GB.bordersDefined:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 			if GB.turn == "blue":
 				var polygonCopy = polygon + PackedVector2Array([get_local_mouse_position()])

@@ -1,12 +1,14 @@
 extends Button
 
-var progress = 0
+var changedRed = false
+var changedBlue = false
 
 func _on_pressed():
 	if GB.turn == "red":
 		GB.turn = "blue"
+		changedRed = true
 	elif GB.turn == "blue":
 		GB.turn = "red"
-	progress += 1
-	if progress == 2:
+		changedBlue = true
+	if changedBlue == true and changedRed == true:
 		GB.bordersDefined = true
