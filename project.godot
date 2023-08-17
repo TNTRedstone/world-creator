@@ -14,6 +14,10 @@ config/name="World-creator"
 run/main_scene="res://main_menu.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 
+[autoload]
+
+GB="*res://GlobalVars.gd"
+
 [display]
 
 window/size/mode=2

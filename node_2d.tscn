@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6ytse5plsvcy"]
+[gd_scene load_steps=7 format=3 uid="uid://b6ytse5plsvcy"]
 
-[ext_resource type="Script" path="res://borderdefinition.gd" id="2_v14d2"]
 [ext_resource type="Script" path="res://cameraMovement.gd" id="2_w728d"]
+[ext_resource type="Script" path="res://RedBorders.gd" id="3_25jct"]
 [ext_resource type="Texture2D" uid="uid://b3p7jfhxd2cgn" path="res://map.jpg" id="3_bi1l2"]
+[ext_resource type="Script" path="res://BlueBorders.gd" id="4_ad6cq"]
+[ext_resource type="Script" path="res://DoneButton.gd" id="5_7bny4"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dv58e"]
 blend_mode = 3
@@ -16,7 +18,22 @@ script = ExtResource("2_w728d")
 scale = Vector2(0.191, 0.191)
 texture = ExtResource("3_bi1l2")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
+[node name="Red" type="Polygon2D" parent="."]
 material = SubResource("CanvasItemMaterial_dv58e")
-color = Color(1, 0, 0, 1)
-script = ExtResource("2_v14d2")
+color = Color(1, 0.196078, 0.196078, 1)
+script = ExtResource("3_25jct")
+
+[node name="Blue" type="Polygon2D" parent="."]
+material = SubResource("CanvasItemMaterial_dv58e")
+color = Color(0.196078, 0.196078, 1, 1)
+script = ExtResource("4_ad6cq")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 977.0
+offset_top = -507.0
+offset_right = 1026.0
+offset_bottom = -476.0
+text = "Done"
+script = ExtResource("5_7bny4")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

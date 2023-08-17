@@ -32,9 +32,10 @@ func filterVector2Array(array: PackedVector2Array) -> PackedVector2Array:
 	return filteredArray
 func _input(_event):
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-		var polygonCopy = polygon + PackedVector2Array([get_local_mouse_position()])
-		if polygon.is_empty():
-			firstElement = PackedVector2Array([get_local_mouse_position()])
-		if calculate_polygon_area(polygonCopy) < 100:
-			polygon = polygon + PackedVector2Array([get_local_mouse_position()])
-		polygon = filterVector2Array(polygon)
+		if GB.turn == "red":
+			var polygonCopy = polygon + PackedVector2Array([get_local_mouse_position()])
+			if polygon.is_empty():
+				firstElement = PackedVector2Array([get_local_mouse_position()])
+			if calculate_polygon_area(polygonCopy) < 100:
+				polygon = polygon + PackedVector2Array([get_local_mouse_position()])
+			polygon = filterVector2Array(polygon)
