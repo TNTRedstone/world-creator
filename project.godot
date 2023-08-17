@@ -22,13 +22,6 @@ GB="*res://GlobalVars.gd"
 
 window/size/mode=2
 
-[input]
-
-KPressed={
-"deadzone": 0.5,
-"events": []
-}
-
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
