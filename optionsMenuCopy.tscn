@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://64jeqi6bvk3c"]
+[gd_scene load_steps=3 format=3 uid="uid://ccs2rxsqknccn"]
 
-[ext_resource type="Script" path="res://optionsMenu.gd" id="1_u1krd"]
+[ext_resource type="Script" path="res://optionsMenu.gd" id="1_rncsa"]
+[ext_resource type="Script" path="res://optionsMenuCopy.gd" id="2_aydkj"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -9,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_u1krd")
+script = ExtResource("1_rncsa")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -32,6 +33,6 @@ layout_mode = 2
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Back"
-script = ExtResource("1_u1krd")
+script = ExtResource("2_aydkj")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

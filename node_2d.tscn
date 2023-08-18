@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://b6ytse5plsvcy"]
+[gd_scene load_steps=11 format=3 uid="uid://b6ytse5plsvcy"]
 
 [ext_resource type="Script" path="res://MilitaryBases.gd" id="1_24gn1"]
+[ext_resource type="Script" path="res://pauser.gd" id="1_kcwvn"]
 [ext_resource type="Script" path="res://cameraMovement.gd" id="2_w728d"]
 [ext_resource type="Script" path="res://RedBorders.gd" id="3_25jct"]
 [ext_resource type="Texture2D" uid="uid://b3p7jfhxd2cgn" path="res://map.jpg" id="3_bi1l2"]
 [ext_resource type="Script" path="res://BlueBorders.gd" id="4_ad6cq"]
 [ext_resource type="Script" path="res://DoneButton.gd" id="5_7bny4"]
+[ext_resource type="Script" path="res://pause.gd" id="8_c3ax2"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qeoee"]
 blend_mode = 3
@@ -14,8 +16,11 @@ blend_mode = 3
 blend_mode = 3
 
 [node name="Node2D" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_kcwvn")
 
 [node name="Control" type="Control" parent="."]
+process_mode = 1
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -49,5 +54,44 @@ offset_right = 1026.0
 offset_bottom = -476.0
 text = "Done"
 script = ExtResource("5_7bny4")
+metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="Control/Button" to="Control/Button" method="_on_pressed"]
+[node name="PauseMenu" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_c3ax2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -65.5
+offset_right = 48.0
+offset_bottom = 65.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="Button2" type="Button" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="Button3" type="Button" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[connection signal="pressed" from="PauseMenu/VBoxContainer/Button2" to="PauseMenu" method="_on_button_2_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/Button3" to="PauseMenu" method="_on_button_3_pressed"]
