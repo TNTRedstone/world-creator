@@ -93,5 +93,6 @@ text = "Quit"
 layout_mode = 2
 text = "Options"
 
+[connection signal="pressed" from="Control/Button" to="Control/Button" method="_on_pressed"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/Button2" to="PauseMenu" method="_on_button_2_pressed"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/Button3" to="PauseMenu" method="_on_button_3_pressed"]
